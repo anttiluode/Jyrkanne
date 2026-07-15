@@ -1,0 +1,83 @@
+{
+ "calibration": {
+  "GOE": 0.5089487967443304,
+  "GUE": 0.6062071346247335
+ },
+ "rows": [
+  {
+   "s": 0.0,
+   "r": 0.6046,
+   "max_im": 7.220768656417967e-15,
+   "flux": 1097.2
+  },
+  {
+   "s": 0.25,
+   "r": 0.5924,
+   "max_im": 3.59428609883487e-15,
+   "flux": 1037.4
+  },
+  {
+   "s": 0.5,
+   "r": 0.5985,
+   "max_im": 3.3633612932030128e-15,
+   "flux": 998.0
+  },
+  {
+   "s": 0.75,
+   "r": 0.5693,
+   "max_im": 3.327860560579831e-15,
+   "flux": 949.6
+  },
+  {
+   "s": 1.0,
+   "r": 0.6002,
+   "max_im": 4.09630081408577e-15,
+   "flux": 842.2
+  }
+ ],
+ "alkuluku": {
+  "s1": {
+   "log2": 0.23,
+   "log3": 1.28,
+   "log5": 2.55,
+   "log7": 3.81,
+   "log11": 4.21,
+   "log13": 4.21
+  },
+  "flat": {
+   "log2": -0.65,
+   "log3": -0.58,
+   "log5": -0.14,
+   "log7": -0.14,
+   "log11": 1.47,
+   "log13": 1.47
+  }
+ },
+ "verdict": {
+  "GOE": 0.5089,
+  "GUE": 0.6062,
+  "midpoint": 0.5576,
+  "J1_reality_holds": true,
+  "J1_max_imag": 7.220768656417967e-15,
+  "J2_outcome": "preserves_GUE",
+  "J2_r_trajectory": [
+   0.6046,
+   0.5924,
+   0.5985,
+   0.5693,
+   0.6002
+  ],
+  "J2_flux_trajectory": [
+   1097.2,
+   1037.4,
+   998.0,
+   949.6,
+   842.2
+  ],
+  "J3_prime_peaks_s1": 2,
+  "J3_prime_peaks_flat": 0,
+  "J3_arbiter_null": true,
+  "MIRACLE": false,
+  "HEADLINE": "Prime-ladder MAGNITUDES keep the spectrum real and GUE-class (preserved) but carry NO arithmetic fingerprint (arbiter null): the amplitude wall, in its Hermitian half, is about class robustness not primes. The cliff is unscaled."
+ }
+}
