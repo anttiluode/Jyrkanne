@@ -122,3 +122,35 @@ This **kills** both registered hypotheses (K1 Kac–Rice and the arithmetic long
 The methodological win is the SORTED arm. Betting "artifact" and testing it was right; but the naive artifact test (SHUFFLE and SURROGATE alone) would have concluded "not Kac–Rice, therefore arithmetic" — the exact false positive that starts crank RH claims. SORTED is what caught the real cause: a same-multiset control with the ordering *preserved but de-arithmetized*. Without it, this whisper could have been mistaken for signal. With it, the cliff stays honestly unscaled.
 
 `results/kaiku_results.json` holds all four seeds × four sets; `figs/kaiku.png` shows PRIME ≈ SORTED ≫ SURROGATE, SHUFFLE.
+
+---
+
+## ADDENDUM 2 — Ulam: can the indexing map steer the graph? (see `experiments/ulam.py`)
+
+The Ulam-spiral thread: the spiral reveals prime structure because primes *sit* on the plane's quadratics. Does indexing the couplings by a spiral or quadratic map (instead of linearly) make the graph feel anything the linear order could not — and does any of it survive the Kaikū de-arithmetization?
+
+Three index maps (LINEAR, SPIRAL, QUADRATIC), each with the Kaikū control arms. 2 seeds, N=350 (container; the heavy run raises both). Result at log5:
+
+| map | PRIME | SORTED (no primes, same gradient) | SHUFFLE (histogram only) |
+|---|--:|--:|--:|
+| linear | +4.44 | +4.40 | +0.43 |
+| spiral | +4.30 | +4.08 | +0.43 |
+| quadratic | +0.29 | +0.47 | +0.64 |
+
+**U1 confirmed — the map steers the geometry.** Each index map lights up a *different* set of FFT frequencies (linear's dominant peak at ω≈1.74, spiral's at ω≈1.62 with far larger amplitude, quadratic's spread and flattened). The graph's geometric resonance is genuinely steerable by how you number the edges — the Ulam intuition that representation shapes what's visible is correct here.
+
+**U2 null — but never the primes.** For *every* map, PRIME = SORTED to within noise (linear 4.44 vs 4.40; spiral 4.30 vs 4.08), and both ≫ SHUFFLE. De-arithmetized SORTED — same magnitudes, monotone along the same map, *no primes* — reproduces every signal. The spiral's diagonal-shuffle control (scramble within spiral diagonals, preserving coarse structure, destroying fine arithmetic) also does not separate from the geometric baseline. No map makes the graph feel the primes qua primes.
+
+**Why the disanalogy is exact and instructive:** Ulam's spiral reveals arithmetic because the primes genuinely *occupy* the quadratic diagonals — the structure is in the integers, and the spiral is the lens that resolves it. Here the primes are only *labels on edges*; the dynamics never touch their arithmetic, only the shape of the weight field they induce. So a spiral index produces a spiral-shaped weight field, and the graph resonates with *that shape* — its own geometry — regardless of whether primes or a sorted surrogate wrote it. Change the representation and you change which geometric resonance appears; you never conjure arithmetic that the dynamics cannot see. The Kaikū SORTED arm is what proves this rather than assuming it: it holds the geometry fixed and removes the primes, and the signal doesn't budge.
+
+The methodological through-line from Kaikū: a naive Ulam test (does the spiral map light up new frequencies? yes!) would have looked like a discovery. SORTED shows it is the map's geometry, not the primes. This is the same control that separated a real Ulam spiral (arithmetic, survives all controls) from a representation artifact (geometry, dies under de-arithmetization) — and here it is firmly the latter.
+
+`results/ulam_results.json` holds both seeds × three maps × all arms; `figs/ulam.png` shows PRIME=SORTED≫SHUFFLE per map (left) and each map's distinct geometric-frequency signature (right).
+
+### For the heavy run
+
+The code is parameterized for scale, not hardcoded to the container:
+```bash
+ULAM_N=1200 ULAM_SEEDS=12 python experiments/ulam.py
+```
+raises the graph size (more levels → sharper FFT, cleaner σ) and the seed count (tighter PRIME−SORTED confidence intervals). The kill condition to watch on real hardware: if at large N any map shows PRIME exceeding SORTED by ≥2σ at a log-prime frequency *and* that excess dies under the spiral DShuffle, that is an Ulam-style arithmetic signal worth a long look. The container's honest prior, now measured at 2 seeds: it does not, and will not — but the heavy run is what makes "will not" a datum instead of a guess.
