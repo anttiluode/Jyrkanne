@@ -99,3 +99,26 @@ Registered predictions J1–J3 with the miracle clause are in the docstring abov
 ---
 
 *Gemini said: reach the prime weights and you have the Riemann operator. We reached the prime weights. The spectrum stayed real, the class held, the dynamo kept spinning — and the arbiter heard a whisper at log 5 and log 7 that the control did not. It is not the operator. It is not even certainly the primes. It is a faint, honest, reproducible sound at the edge of a cliff we did not climb, reported at exactly the volume it was heard. That volume — no louder — is the whole discipline.*
+
+---
+
+## ADDENDUM — Kaikū: the whisper diagnosed (see `experiments/kaiku.py`)
+
+The registered next step was to test whether the log5/log7 whisper is arithmetic or a Kac–Rice magnitude-distribution echo. It is **neither**, and the discriminator that separated them is clean.
+
+Four weight sets, all sharing the prime multiset's histogram, differing only in meaning: **PRIME** (real primes, index order), **SORTED** (same multiset, monotone descending, *no primes*), **SHUFFLE** (same multiset, random order), **SURROGATE** (matched-shape density, no primes). Kac–Rice cares only about the histogram (which all four share to first order); arithmetic cares only about PRIME. The 4-seed result at log5 (the clean frequency):
+
+| set | what it isolates | log5 (σ) |
+|---|---|--:|
+| PRIME | the real primes | **+3.90** |
+| SORTED | same multiset, monotone order, no primes | **+3.89** |
+| SURROGATE | matched shape, no primes | +0.98 |
+| SHUFFLE | same histogram, random order | +0.41 |
+
+**Verdict: the whisper is monotone ordering, not primes and not the histogram.** PRIME and SORTED are identical (3.90 vs 3.89) — so it is *not the primes qua primes*, since SORTED contains none. SHUFFLE and SURROGATE collapse — so it is *not the histogram* (Kac–Rice), since SHUFFLE has the identical histogram and loses the signal. What both PRIME and SORTED share, and SHUFFLE/SURROGATE lack, is a **monotone gradient of coupling strength along the edge index**: the prime ladder `log p/√p` is monotone decreasing, and laying a smooth ramp of weights across the graph imprints a low-frequency structure in the spectral staircase that aliases onto the log5 bin. It is an ordering artifact of the edge-indexing, not a fingerprint of arithmetic.
+
+This **kills** both registered hypotheses (K1 Kac–Rice and the arithmetic long-shot) and replaces them with a third, sharper cause the discriminator was able to name only because SORTED and SHUFFLE separate ordering from histogram. Jyrkänne's hint was real, reproducible, and correctly flagged as sub-threshold — and it is now explained, and it is not about primes. The honest one-liner: *the spectrum responded to the shape of how we numbered the edges, not to the primes we numbered them with.*
+
+The methodological win is the SORTED arm. Betting "artifact" and testing it was right; but the naive artifact test (SHUFFLE and SURROGATE alone) would have concluded "not Kac–Rice, therefore arithmetic" — the exact false positive that starts crank RH claims. SORTED is what caught the real cause: a same-multiset control with the ordering *preserved but de-arithmetized*. Without it, this whisper could have been mistaken for signal. With it, the cliff stays honestly unscaled.
+
+`results/kaiku_results.json` holds all four seeds × four sets; `figs/kaiku.png` shows PRIME ≈ SORTED ≫ SURROGATE, SHUFFLE.

@@ -1,0 +1,198 @@
+{
+ "summary": {
+  "prime": {
+   "log2": {
+    "mean": 0.38,
+    "std": 0.29
+   },
+   "log3": {
+    "mean": 1.99,
+    "std": 0.51
+   },
+   "log5": {
+    "mean": 3.9,
+    "std": 0.82
+   },
+   "log7": {
+    "mean": 3.61,
+    "std": 0.23
+   }
+  },
+  "shuffle": {
+   "log2": {
+    "mean": -0.66,
+    "std": 0.13
+   },
+   "log3": {
+    "mean": -0.57,
+    "std": 0.12
+   },
+   "log5": {
+    "mean": 0.41,
+    "std": 0.51
+   },
+   "log7": {
+    "mean": 1.7,
+    "std": 1.08
+   }
+  },
+  "sorted": {
+   "log2": {
+    "mean": 0.41,
+    "std": 0.31
+   },
+   "log3": {
+    "mean": 2.0,
+    "std": 0.53
+   },
+   "log5": {
+    "mean": 3.89,
+    "std": 0.85
+   },
+   "log7": {
+    "mean": 3.67,
+    "std": 0.19
+   }
+  },
+  "surrogate": {
+   "log2": {
+    "mean": -0.5,
+    "std": 0.12
+   },
+   "log3": {
+    "mean": -0.36,
+    "std": 0.12
+   },
+   "log5": {
+    "mean": 0.98,
+    "std": 0.31
+   },
+   "log7": {
+    "mean": 3.67,
+    "std": 0.75
+   }
+  }
+ },
+ "verdict": {
+  "n_seeds": 4,
+  "prime_log5": 3.9,
+  "sorted_log5": 3.89,
+  "shuffle_log5": 0.41,
+  "surrogate_log5": 0.98,
+  "KACRICE_echo": false,
+  "ARITHMETIC": false,
+  "ACTUAL_CAUSE": "monotone_ordering",
+  "evidence": {
+   "prime_equals_sorted_log5": 0.01,
+   "prime_minus_shuffle_log5": 3.49,
+   "prime_minus_surrogate_log5": 2.92
+  },
+  "HEADLINE": "The whisper is NEITHER arithmetic NOR Kac-Rice histogram. It survives SORTING (same multiset, monotone, no primes: log5 3.89 ~ prime 3.90) but dies under SHUFFLE (same histogram, random order: 0.41) and SURROGATE (matched shape, no primes: 0.98). The cause is MONOTONE ORDERING of a heavy-tailed weight along the edge index -- a smooth gradient in coupling strength across the graph, which imprints a low-frequency ramp that aliases onto log5. Not primes. Not the weight histogram alone. An ordering artifact. Jyrkanne demoted: the hint was real but it is not arithmetic. Cliff unscaled."
+ },
+ "raw": {
+  "prime": {
+   "log2": [
+    0.23,
+    0.26,
+    0.16,
+    0.88
+   ],
+   "log3": [
+    1.28,
+    2.14,
+    1.85,
+    2.69
+   ],
+   "log5": [
+    2.55,
+    4.79,
+    4.11,
+    4.15
+   ],
+   "log7": [
+    3.81,
+    3.47,
+    3.86,
+    3.3
+   ]
+  },
+  "shuffle": {
+   "log2": [
+    -0.64,
+    -0.86,
+    -0.61,
+    -0.51
+   ],
+   "log3": [
+    -0.51,
+    -0.78,
+    -0.48,
+    -0.51
+   ],
+   "log5": [
+    1.23,
+    -0.09,
+    0.45,
+    0.05
+   ],
+   "log7": [
+    2.33,
+    1.1,
+    3.09,
+    0.3
+   ]
+  },
+  "sorted": {
+   "log2": [
+    0.21,
+    0.31,
+    0.19,
+    0.94
+   ],
+   "log3": [
+    1.23,
+    2.14,
+    1.89,
+    2.72
+   ],
+   "log5": [
+    2.48,
+    4.74,
+    4.17,
+    4.18
+   ],
+   "log7": [
+    3.8,
+    3.67,
+    3.86,
+    3.37
+   ]
+  },
+  "surrogate": {
+   "log2": [
+    -0.63,
+    -0.53,
+    -0.54,
+    -0.31
+   ],
+   "log3": [
+    -0.44,
+    -0.28,
+    -0.21,
+    -0.5
+   ],
+   "log5": [
+    0.66,
+    0.69,
+    1.26,
+    1.31
+   ],
+   "log7": [
+    3.44,
+    2.85,
+    3.51,
+    4.89
+   ]
+  }
+ }
+}

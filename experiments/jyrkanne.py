@@ -232,4 +232,4 @@ if __name__ == '__main__':
     save = dict(calibration=dict(GOE=GOE,GUE=GUE),
                 rows=[{k:v for k,v in r.items() if k!='ev'} for r in rows],
                 alkuluku=dict(s1=sig_prime, flat=sig_flat), verdict=verdict)
-    json.dump(save, open('../results/jyrkanne_results.json','w'), indent=1)
+    json.dump(save, open('/home/claude/jyrkanne_results.json','w'), indent=1)
